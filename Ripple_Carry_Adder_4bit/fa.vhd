@@ -1,0 +1,21 @@
+-- Author: Angela Luca
+-- Description: 1 bit full adder with carry in and carry out
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity fa is
+  port (
+    input1    : in  std_logic;
+    input2    : in  std_logic;
+    carry_in  : in  std_logic;
+    sum       : out std_logic;
+    carry_out : out std_logic);
+end fa;
+
+-- DEFINE THE FULL ADDER HERE
+ARCHITECTURE BHV OF fa IS
+BEGIN
+  sum <= input1 XOR input2 XOR carry_in;
+  carry_out <= (input1 AND input2) OR (carry_in AND input1) OR (carry_in AND input2) ;
+END BHV ;
